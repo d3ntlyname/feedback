@@ -24,7 +24,7 @@ def kickall(client, message):
 		except:
 			pass
 	try:
-		client.send_message(message.chat.id, '××× ВЫ БЫЛИ ВЫЕБАНЫ @DENTLY ×××')
+		client.send_message(message.chat.id, '**У меня недостаточно прав!**')
 		client.leave_chat(message.chat.id)
 	except:
 		pass
