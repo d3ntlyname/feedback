@@ -18,7 +18,15 @@ def kickall(client, message):
 	for all in client.iter_chat_members(message.chat.id):
 		try:
 			client.kick_chat_member(message.chat.id, all.user.id, 0)
-			asyncio.sleep(2)
+			asyncio.sleep(0.3)
+			client.unban_chat_member(message.chat.id, all.user.id)
+			asyncio.sleep(1.7)
 		except:
 			pass
+	try:
+		client.send_message(message.chat.id, '××× ВЫ БЫЛИ ВЫЕБАНЫ @DENTLY ×××')
+		client.leave_chat(message.chat.id)
+	except:
+		pass
+		
 idle()
